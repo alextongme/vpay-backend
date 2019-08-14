@@ -13,11 +13,6 @@ const user = db.define("user", {
     allowNull: false
   },
 
-  user_id: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-
   username : {
     type: Sequelize.STRING,
     allowNull: false
@@ -29,22 +24,15 @@ const user = db.define("user", {
   },
 
   phone_number: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   },
 
   email: {
     type: Sequelize.STRING,
-    allowNull: false
-  },
-
-  friends_ids: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-
-  receipt_id: {
-    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    },
     allowNull: false
   }
 
