@@ -4,7 +4,9 @@
   "description": "backend for the vpay app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www",
+    "seed": "node ./utilities/seedDatabase"
   },
   "repository": {
     "type": "git",
