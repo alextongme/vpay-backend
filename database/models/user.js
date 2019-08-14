@@ -23,7 +23,7 @@ const user = db.define("user", {
     allowNull: false
   },
 
-  phone_number: {
+  phoneNumber: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
