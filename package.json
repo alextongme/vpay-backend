@@ -1,0 +1,29 @@
+{
+  "name": "vpay-backend",
+  "version": "1.0.0",
+  "description": "backend for the vpay app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tongsalex/vpay-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tongsalex/vpay-backend/issues"
+  },
+  "homepage": "https://github.com/tongsalex/vpay-backend#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0",
+    "morgan": "^1.9.1",
+    "pgtools": "^0.3.0",
+    "sequelize": "^5.14.0"
+  }
+}
