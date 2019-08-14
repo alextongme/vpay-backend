@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const order = db.define("order", {
+const Order = db.define("order", {
 
-  Price: {
+  price: {
     type: Sequelize.INTEGER,
     allowNull: false
   }
 
 });
 
-module.exports = Coach;
+module.exports = Order;

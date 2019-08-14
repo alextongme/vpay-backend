@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const user = db.define("user", {
+const User = db.define("user", {
 
   firstName: {
     type: Sequelize.STRING,
@@ -38,4 +38,4 @@ const user = db.define("user", {
 
 });
 
-module.exports = Coach;
+module.exports = User;

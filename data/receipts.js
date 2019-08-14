@@ -1,9 +1,9 @@
 // A sample of teams which are part of the National Basketball Association;
-const teams = [
+const receipts = [
   {
     "totalPrice": 5500,
     "tipPercent": 18
   }
 ];
 
-module.exports = teams;
+module.exports = receipts;

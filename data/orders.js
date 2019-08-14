@@ -7,4 +7,4 @@ const orders = [
   }
 ];
 
-module.exports = players;
+module.exports = orders;

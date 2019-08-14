@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const receipt = db.define("receipt", {
+const Receipt = db.define("receipt", {
 
   totalPrice: {
     type: Sequelize.INTEGER,
@@ -21,4 +21,4 @@ const receipt = db.define("receipt", {
 
 });
 
-module.exports = Coach;
+module.exports = Receipt;
