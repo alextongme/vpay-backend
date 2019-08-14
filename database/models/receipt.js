@@ -8,12 +8,6 @@ const Receipt = db.define("receipt", {
     allowNull: false
   },
 
-  // API RETURNING WRONG STATES
-  // state: {
-  //   type: Sequelize.STRING,
-  //   allowNull: false
-  // },
-
   tipPercent : {
     type: Sequelize.INTEGER,
     allowNull: false

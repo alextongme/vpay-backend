@@ -1,7 +1,5 @@
-#!/usr/bin/env node
-
 // Module dependencies;
-const app = require('../app');
+const app = require('../index');
 const http = require('http');
 const { normalizePort, onListening } = require('./config');
 
