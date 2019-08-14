@@ -4,7 +4,9 @@
   "description": "backend for the vpay app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www",
+    "seed": "node ./utilities/seedDatabase"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "helmet": "^3.20.0",
     "morgan": "^1.9.1",
