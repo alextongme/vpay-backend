@@ -8,4 +8,10 @@ router.get('/', function(req, res, next) {
     .catch(next)
 });
 
+router.get('/:id', function(req, res, next) {
+  Order.findByPk(req.params.id)
+    .then(order => res.json(order))
+    .catch(next)
+});
+
 module.exports = router;
