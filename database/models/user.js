@@ -15,7 +15,8 @@ const User = db.define("user", {
 
   username : {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
 
   password: {
@@ -25,7 +26,8 @@ const User = db.define("user", {
 
   phoneNumber: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
 
   email: {
@@ -33,7 +35,8 @@ const User = db.define("user", {
     validate: {
       isEmail: true
     },
-    allowNull: false
+    allowNull: false,
+    unique: true
   }
 
 });
