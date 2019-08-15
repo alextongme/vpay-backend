@@ -7,6 +7,14 @@ const users = [
     "password": "letmein",
     "phoneNumber": 2121234567,
     "email": "TylRel@gmail.com"
+  },
+  {
+    "firstName": "Napat",
+    "lastName": "Panat",
+    "username": "napapana",
+    "password": "panat",
+    "phoneNumber": 2121234567,
+    "email": "napa@gmail.com"
   }
 ];
 

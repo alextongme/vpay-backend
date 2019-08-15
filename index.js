@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 // Utilities;
 const createLocalDatabase = require('./utilities/createLocalDatabase');
@@ -21,7 +21,7 @@ const db = require('./database');
 const apiRouter = require('./routes/index');
 
 // Use dotenv
-dotenv.config();
+// dotenv.config();
 
 // A helper function to sync our database;
 const syncDatabase = () => {
