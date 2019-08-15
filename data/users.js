@@ -11,9 +11,9 @@ const users = [
   {
     "firstName": "Napat",
     "lastName": "Panat",
-    "username": "napapana",
-    "password": "panat",
-    "phoneNumber": 2121234567,
+    "username": "napa",
+    "password": "pana",
+    "phoneNumber": 2121734567,
     "email": "napa@gmail.com"
   }
 ];
