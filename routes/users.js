@@ -2,14 +2,17 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../database/models');
 
-router.get('/', function(req, res, next) {
-  User.findAll()
-    .then(users => res.json(users))
-    .catch(next)
-});
+// router.get('/', function(req, res, next) {
+//   User.findAll({
+//     attributes: ['id', 'firstName']
+//   })
+//     .then(users => res.json(users))
+//     .catch(next)
+// });
 
 router.get('/:id', function(req, res, next) {
-  User.findByPk(req.params.id)
+  User.findByPk(req.params.id, 
+    {attributes: ['id', 'firstName', 'lastName', 'username']})
     .then(user => res.json(user))
     .catch(next)
 });

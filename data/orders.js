@@ -4,6 +4,9 @@ const orders = [
   },
   {
     "price":3000
+  },
+  {
+    "price":2400
   }
 ];
 
