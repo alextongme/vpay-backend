@@ -17,7 +17,7 @@ const User = db.define("user", {
     allowNull: false,
     unique: {
       args: true,
-      msg: 'username already in use!'
+      msg: 'Username Already In Use!'
     }
   },
 
@@ -31,7 +31,7 @@ const User = db.define("user", {
     allowNull: false,
     unique: {
       args: true,
-      msg: 'phone number already in use!'
+      msg: 'Phone Number Already In Use!'
     }
   },
 
@@ -43,7 +43,7 @@ const User = db.define("user", {
     allowNull: false,
     unique: {
       args: true,
-      msg: 'email already in use!'
+      msg: 'Email Already In Use!'
     }
   }
 

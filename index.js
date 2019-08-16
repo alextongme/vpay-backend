@@ -22,8 +22,8 @@ const syncDatabase = () => {
       db.sync();
     }
     else {
-      console.log('As a reminder, the forced synchronization option is off');
-      db.sync({ force: false })
+      console.log('As a reminder, the forced synchronization option is on');
+      db.sync({ force: true })
         .catch(err => {
           if (err.name === 'SequelizeConnectionError') {
             createLocalDatabase();

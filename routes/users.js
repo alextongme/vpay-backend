@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../database/models');
+const { Receipt } = require('../database/models');
+const { Order } = require('../database/models');
 
 // FINDS ALL USERS
 router.get('/', function(req, res, next) {
@@ -24,8 +26,16 @@ router.put('/login', function(req, res, next) {
       username: req.body.username,
       password: req.body.password
     },
-    attributes: ['id', 'firstName', 'lastName', 'username']
-    }).then(user =>
+      attributes: ['id', 'firstName', 'lastName', 'username'],
+      include: [{
+        model: Receipt
+      },
+      {
+        model: Order
+      }
+    ]
+    },
+    ).then(user =>
       {if(user == null) {
         res.status(404).send("Invalid username and/or password");
       }

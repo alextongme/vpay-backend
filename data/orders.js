@@ -1,12 +1,18 @@
 const orders = [
   {
+    "itemName": "coke",
     "price":2500
+    // "userId": 2
   },
   {
-    "price":3000
+    "itemName": "sprite",
+    "price":3000,
+    // "userId": 1
   },
   {
-    "price":2400
+    "itemName": "ginger ale",
+    "price":2400,
+    // "userId": 1
   }
 ];
 
