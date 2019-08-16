@@ -10,6 +10,12 @@ const { User } = require('../database/models');
 //     .catch(next)
 // });
 
+router.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next()
+});
+
 // FINDS USER BY ID NUMBER
 router.get('/:id', function(req, res, next) {
   User.findByPk(req.params.id, 

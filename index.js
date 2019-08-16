@@ -1,7 +1,3 @@
-// if (process.env.NODE_ENV !== 'production') {
-//   require('./secrets');
-// }
-
 // Module dependencies;
 const express = require('express');
 const path = require('path');
@@ -19,9 +15,6 @@ const db = require('./database');
 
 // Our apiRouter;
 const apiRouter = require('./routes/index');
-
-// Use dotenv
-// dotenv.config();
 
 // A helper function to sync our database;
 const syncDatabase = () => {

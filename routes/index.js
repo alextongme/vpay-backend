@@ -18,5 +18,8 @@ router.use((req, res, next) => {
   next(error);
 });
 
+// ENABLE CORS?
+
+
 // Export our apiRouter, so that it can be used by our main app in app.js;
 module.exports = router;
