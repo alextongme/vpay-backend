@@ -39,18 +39,20 @@ router.put('/login', function(req, res, next) {
 // CREATES A NEW USER
 router.post('/', function(req, res, next) {
   const user = req.body;
-  let createdUser = User.create(user).catch(error =>{
-    // console.log(error);
-    res.send(error);
-  });
-
-  // if (createdUser) {
-  //   res.status(202).send(createdUser)
-  // }
-  // else {
-  //   res.status(404).send("User/email/phone already exists");
-  // }
-  
+  User.create(user)
+  .then(function(user) {
+    res.json(user);
+  })
+  .catch(function (err) {
+    // respond with validation errors
+    return res.status(422).send(err.errors[0].message);
+  })
+  .catch(function (err) {
+    // every other error
+    return res.status(400).send({
+        message: err.message
+    })
+  })
 });
 
 
