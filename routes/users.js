@@ -12,9 +12,12 @@ router.get('/', function(req, res, next) {
 });
 
 // FINDS USER BY ID NUMBER
-router.get('/:id', function(req, res, next) {
-  User.findByPk(req.params.id, 
-    {attributes: ['id', 'firstName', 'lastName', 'username']})
+router.get('/:username', function(req, res, next) {
+  User.findOne(
+    {where: {username: req.params.username},
+    attributes: ['id', 'firstName', 'lastName', 'username']
+    }
+    )
     .then(user => res.json(user))
     .catch(next)
 });
