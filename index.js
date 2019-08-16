@@ -1,7 +1,3 @@
-// if (process.env.NODE_ENV !== 'production') {
-//   require('./secrets');
-// }
-
 // Module dependencies;
 const express = require('express');
 const path = require('path');
@@ -9,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
-const dotenv = require('dotenv');
+const cors = require('cors');
 
 // Utilities;
 const createLocalDatabase = require('./utilities/createLocalDatabase');
@@ -20,9 +16,6 @@ const db = require('./database');
 // Our apiRouter;
 const apiRouter = require('./routes/index');
 
-// Use dotenv
-dotenv.config();
-
 // A helper function to sync our database;
 const syncDatabase = () => {
     if (process.env.NODE_ENV === 'production') {
@@ -30,7 +23,7 @@ const syncDatabase = () => {
     }
     else {
       console.log('As a reminder, the forced synchronization option is on');
-      db.sync({ force: true })
+      db.sync({ force: false })
         .catch(err => {
           if (err.name === 'SequelizeConnectionError') {
             createLocalDatabase();
@@ -53,6 +46,7 @@ const configureApp = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(compression());
   app.use(cookieParser());
+  app.use(cors());
 
   // Mount our apiRouter;
   app.use('/api', apiRouter);
