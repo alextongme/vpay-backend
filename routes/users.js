@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../database/models');
 
+// FINDS ALL USERS
 router.get('/', function(req, res, next) {
   User.findAll({
     attributes: ['id', 'firstName']
@@ -9,12 +10,6 @@ router.get('/', function(req, res, next) {
     .then(users => res.json(users))
     .catch(next)
 });
-
-// router.all('/', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   next()
-// });
 
 // FINDS USER BY ID NUMBER
 router.get('/:id', function(req, res, next) {
@@ -51,7 +46,7 @@ router.post('/', function(req, res, next) {
   });
 
   if (createdUser) {
-    res.status(200).send(createdUser)
+    res.status(202).send(createdUser)
   }
   else {
     res.status(404).send("User/email/phone already exists");
