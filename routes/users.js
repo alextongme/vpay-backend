@@ -4,9 +4,7 @@ const { User } = require('../database/models');
 
 // FINDS ALL USERS
 router.get('/', function(req, res, next) {
-  User.findAll({
-    attributes: ['id', 'firstName']
-  })
+  User.findAll()
     .then(users => res.json(users))
     .catch(next)
 });
