@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../database/models');
 
-// router.get('/', function(req, res, next) {
-//   User.findAll({
-//     attributes: ['id', 'firstName']
-//   })
-//     .then(users => res.json(users))
-//     .catch(next)
-// });
-
-router.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next()
+router.get('/', function(req, res, next) {
+  User.findAll({
+    attributes: ['id', 'firstName']
+  })
+    .then(users => res.json(users))
+    .catch(next)
 });
+
+// router.all('/', function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   next()
+// });
 
 // FINDS USER BY ID NUMBER
 router.get('/:id', function(req, res, next) {
