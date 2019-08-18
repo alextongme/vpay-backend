@@ -13,12 +13,22 @@ router.get('/', function(req, res, next) {
 
 // FINDS USER BY ID NUMBER
 router.get('/:username', function(req, res, next) {
-  User.findOne(
-    {where: {username: req.params.username},
+  User.findOne({
+    where: {username: req.params.username},
     attributes: ['id', 'firstName', 'lastName', 'username']
-    }
-    )
-    .then(user => res.json(user))
+    })
+    // .then(user => res.json(user))
+    .then(user =>
+      {
+        if(user == null) 
+        {
+        res.status(404).send("Invalid user");
+        }
+        else 
+        {
+          res.status(200).json(user);
+        }
+      })
     .catch(next)
 });
 
