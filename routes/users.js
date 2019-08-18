@@ -22,7 +22,7 @@ router.get('/:username', function(req, res, next) {
       {
         if(user == null) 
         {
-        res.status(404).send("Invalid user");
+        res.status(404).send("User not found.");
         }
         else 
         {
