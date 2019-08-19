@@ -41,7 +41,10 @@ router.put('/login', function(req, res, next) {
     },
       attributes: ['id', 'firstName', 'lastName', 'username'],
       include: [{
-        model: Receipt
+        model: Receipt,
+        include: [{
+          model: Order
+        }]
       },
       {
         model: Order

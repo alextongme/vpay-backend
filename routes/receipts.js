@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { Receipt } = require('../database/models');
+const { Order } = require('../database/models');
 
 // GET ALL RECEIPTS
 router.get('/', function(req, res, next) {
-    Receipt.findAll()
+    Receipt.findAll({ include: [{
+      model: Order
+    }]})
       .then(receipts => res.json(receipts))
       .catch(next)
   });
