@@ -46,6 +46,27 @@ router.post('/', function(req, res, next) {
   })
 });
 
+// MODIFY THE ORDER
+router.put('/:id', function(req, res, next) {
+  let modifiedOrder = req.body;
+  let modified = model.update(
+    {
+      "paid": modifiedOrder.paid
+    }, 
+    {
+      where : {
+        id : req.params.id
+      }
+    }).catch(error=>{console.log(error)});
+
+    if(modified) {
+      res.status(200).send(`Updated order with id# ${req.params.id}.`);
+    }
+    else {
+      res.status(404).send(`Did not find order.`);
+    }
+});
+
 /*
 put
 post
