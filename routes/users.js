@@ -49,7 +49,9 @@ router.put('/login', function(req, res, next) {
     ]
     },
     ).then(user =>
-      {if(user == null) {
+      {
+        if(user == null) 
+        {
         res.status(404).send("Invalid username and/or password");
       }
       else {

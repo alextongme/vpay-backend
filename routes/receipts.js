@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Receipt } = require('../database/models');
 
+// GET ALL RECEIPTS
 router.get('/', function(req, res, next) {
     Receipt.findAll()
       .then(receipts => res.json(receipts))
