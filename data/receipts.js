@@ -3,12 +3,14 @@ const receipts = [
   {
     "totalPrice": 5500,
     "tipPercent": 18,
-    "userId": 1
+    "userId": 1,
+    // "fulfilled": false
   },
   {
     "totalPrice": 3300,
     "tipPercent": 20,
-    "userId": 2
+    "userId": 2,
+    // "fulfilled": false
   }
 ];
 

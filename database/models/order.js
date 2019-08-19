@@ -11,6 +11,12 @@ const Order = db.define("order", {
   price: {
     type: Sequelize.INTEGER,
     allowNull: false
+  }, 
+
+  paid: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: false 
   }
 
 });

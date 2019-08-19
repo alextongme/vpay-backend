@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
   const receipt = req.body;
   Receipt.create(receipt)
   .then(function(receipt) {
-    res.json(receipt);
+    res.json(receipt.id); // sends back receipt id of one just created
   })
   .catch(function (err) {
     // respond with validation errors
@@ -41,11 +41,5 @@ router.post('/', function(req, res, next) {
     })
   })
 });
-
-/*
- - TO DO LIST -
-Put
-Delete
- */
 
 module.exports = router;

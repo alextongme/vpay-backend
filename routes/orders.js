@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Order } = require('../database/models');
 
+/* GETS */
 // FIND ALL ORDERS
 router.get('/', function(req, res, next) {
     Order.findAll()
@@ -27,6 +28,7 @@ router.get('/:userId', function(req, res, next) {
     .catch(next)
 });
 
+/* POSTS */
 // CREATES A NEW ORDER
 router.post('/', function(req, res, next) {
   const order = req.body;
@@ -46,12 +48,26 @@ router.post('/', function(req, res, next) {
   })
 });
 
-/*
-put
-post
-delete
-get all by receipt id
-get all by user id
- */
+/* PUTS */
+// MODIFY THE ORDER
+router.put('/:id', function(req, res, next) {
+  let modifiedOrder = req.body;
+  let modified = model.update(
+    {
+      "paid": modifiedOrder.paid
+    }, 
+    {
+      where : {
+        id : req.params.id
+      }
+    }).catch(error=>{console.log(error)});
+
+    if(modified) {
+      res.status(200).send(`Updated order with id# ${req.params.id}.`);
+    }
+    else {
+      res.status(404).send(`Did not find order.`);
+    }
+});
 
 module.exports = router;

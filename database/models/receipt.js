@@ -11,7 +11,13 @@ const Receipt = db.define("receipt", {
   tipPercent : {
     type: Sequelize.INTEGER,
     allowNull: false
-  }
+  },
+
+  // fulfilled: {
+  //   type: Sequelize.BOOLEAN,
+  //   allowNull: false,
+  //   defaultValue: false 
+  // }
 
 });
 

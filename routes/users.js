@@ -17,7 +17,6 @@ router.get('/:username', function(req, res, next) {
     where: {username: req.params.username},
     attributes: ['id', 'firstName', 'lastName', 'username']
     })
-    // .then(user => res.json(user))
     .then(user =>
       {
         if(user == null) 
