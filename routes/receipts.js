@@ -16,7 +16,10 @@ router.get('/', function(req, res, next) {
 router.get('/:userId', function(req, res, next) {
   Receipt.findAll(
     {where: {userId: req.params.userId},
-    attributes: ['userId', 'totalPrice', 'tipPercent', 'id']
+    attributes: ['userId', 'totalPrice', 'tipPercent', 'id'],
+    include: [{
+      model: Order
+    }]
     }
     )
     .then(receipt => res.json(receipt))
