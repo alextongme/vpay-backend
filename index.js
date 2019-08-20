@@ -84,23 +84,23 @@ const configureApp = () => {
   app.use('/api', apiRouter);
 
   // Error handling;
-  // app.use((req, res, next) => {
-  //   if (path.extname(req.path).length) {
-  //     const err = new Error('Not found');
-  //     err.status = 404;
-  //     next(err);
-  //   }
-  //   else {
-  //     next();
-  //   }
-  // });
+  app.use((req, res, next) => {
+    if (path.extname(req.path).length) {
+      const err = new Error('Not found');
+      err.status = 404;
+      next(err);
+    }
+    else {
+      next();
+    }
+  });
 
-  // More error handling;
-//   app.use((err, req, res, next) => {
-//     console.error(err);
-//     console.error(err.stack);
-//     res.status(err.status || 500).send(err.message || 'Internal server error.');
-//   });
+  More error handling;
+  app.use((err, req, res, next) => {
+    console.error(err);
+    console.error(err.stack);
+    res.status(err.status || 500).send(err.message || 'Internal server error.');
+  });
 };
 
 const startListening = () => {
