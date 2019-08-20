@@ -5,11 +5,11 @@ const { Receipt } = require('../database/models');
 const { Order } = require('../database/models');
 
 // FINDS ALL USERS
-router.get('/', function(req, res, next) {
-  User.findAll()
-    .then(users => res.json(users))
-    .catch(next)
-});
+// router.get('/', function(req, res, next) {
+//   User.findAll()
+//     .then(users => res.json(users))
+//     .catch(next)
+// });
 
 // FINDS USER BY ID NUMBER
 router.get('/:username', function(req, res, next) {
