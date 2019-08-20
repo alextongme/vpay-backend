@@ -95,7 +95,7 @@ const configureApp = () => {
     }
   });
 
-  More error handling;
+  // More error handling;
   app.use((err, req, res, next) => {
     console.error(err);
     console.error(err.stack);
