@@ -9,7 +9,7 @@ const Order = db.define("order", {
   },
 
   price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false
   }, 
 

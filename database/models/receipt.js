@@ -4,7 +4,7 @@ const db = require('../db');
 const Receipt = db.define("receipt", {
 
   totalPrice: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false
   },
 

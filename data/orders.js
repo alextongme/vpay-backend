@@ -1,21 +1,21 @@
 const orders = [
   {
     "itemName": "coke",
-    "price":2500,
+    "price":25.00,
     "receiptId": 2,
     "userId": 2,
     // "paid": false
   },
   {
     "itemName": "sprite",
-    "price":3000,
+    "price":30.00,
     "receiptId": 1,
     "userId": 1,
     // "paid": false
   },
   {
     "itemName": "ginger ale",
-    "price":2400,
+    "price":24.00,
     "receiptId": 1,
     "userId": 1,
     // "paid": false
