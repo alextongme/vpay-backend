@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require("../database/models");
 
 router.post("/login", async (req, res, next) => {
+  
   try {
     const user = await User.findOne({ where: { username: req.body.username } });
     if (!user) {
@@ -18,6 +19,7 @@ router.post("/login", async (req, res, next) => {
   catch (err) {
     next(err);
   }
+
 });
 
 router.post("/signup", async (req, res, next) => {
