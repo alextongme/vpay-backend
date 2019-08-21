@@ -9,11 +9,6 @@ router.post("/login", async (req, res, next) => {
       where: { 
         username: req.body.username 
       },
-      // attributes: ['id', 'firstName', 'lastName', 'username'],
-      // include: 
-      // [{ model: Receipt,
-      //   include: [{ model: Order }]},
-      // {model: Order}]
     })
 
     if (!user) {
@@ -23,7 +18,7 @@ router.post("/login", async (req, res, next) => {
       res.status(401).send("Wrong username and/or password");
     }
     else {
-      let foundUser = await User.findOne({ 
+      let foundUser = await User.findOne({
         where: { 
           username: req.body.username 
         },
@@ -61,12 +56,22 @@ router.post("/signup", async (req, res, next) => {
 router.delete("/logout", (req, res) => {
   req.logout();
   req.session.destroy();
-  // res.clearCookie('connect.sid');
   res.status(204).end();
 });
 
-router.get("/me", (req, res) => {
-  res.json(req.user);
+router.get("/me", async (req, res) => {
+  // console.log(req.user);
+  let foundUser = await User.findOne({
+    where: { 
+      username: req.user.username
+    },
+    // attributes: ['id', 'firstName', 'lastName', 'username'],
+    include: 
+    [{ model: Receipt,
+      include: [{ model: Order }]},
+    {model: Order}]
+  })
+  res.json(foundUser);
 });
 
 module.exports = router;
