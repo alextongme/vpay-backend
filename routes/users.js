@@ -31,6 +31,8 @@ router.get('/:username', function(req, res, next) {
     .catch(next)
 });
 
+
+
 // HANDLES LOGIN
 // router.put('/login', function(req, res, next) {
 //   User.findOne({
