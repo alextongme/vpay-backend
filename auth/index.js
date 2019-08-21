@@ -59,9 +59,10 @@ router.post("/signup", async (req, res, next) => {
 });
 
 router.post("/logout", (req, res) => {
+  // console.log(req.logout());
   req.logout();
   req.session.destroy();
-  req.clearCookie('connect.sid');
+  res.clearCookie('connect.sid');
   // res.redirect("/");
  
 });
