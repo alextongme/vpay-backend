@@ -56,7 +56,6 @@ const syncDatabase = () => {
 
 // Instantiate our express application;
 
-
 // A helper function to create our app with configurations and middleware;
 const configureApp = () => {
   app.use(helmet());
@@ -64,7 +63,6 @@ const configureApp = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(compression());
-  // app.use(cors());
 
   app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 
