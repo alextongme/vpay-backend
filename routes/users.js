@@ -33,26 +33,13 @@ router.get('/:username', function(req, res, next) {
 
 
 
-// HANDLES LOGIN
-// router.put('/login', function(req, res, next) {
+// ADD TO BAALNCE
+// router.put('/balance', function(req, res, next) {
 //   User.findOne({
 //     where: {
-//       username: req.body.username,
-//       password: req.body.password
-//     },
-//       attributes: ['id', 'firstName', 'lastName', 'username'],
-//       include: [{
-//         model: Receipt,
-//         include: [{
-//           model: Order
-//         }]
-//       },
-//       {
-//         model: Order
-//       }
-//     ]
-//     },
-//     ).then(user =>
+//       username: req.body.username
+//     }
+//     }).then(user =>
 //       {
 //         if(user == null) 
 //         {
@@ -64,6 +51,26 @@ router.get('/:username', function(req, res, next) {
 //       })
 //       .catch(next)
 // });
+
+router.put('/balance', function(req, res, next) {
+  let modifiedUser = req.body;
+  let modified = User.update(
+    {
+      "balance": modifiedUser.balance
+    }, 
+      {
+      where : {
+        username : modifiedUser.username
+      }
+    }).catch(error=>{console.log(error)});
+
+    if(modified) {
+      res.status(200).send(`Updated user's balance.`);
+    }
+    else {
+      res.status(404).send(`Did not find user.`);
+    }
+});
 
 // CREATES A NEW USER
 // router.post('/', function(req, res, next) {

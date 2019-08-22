@@ -52,7 +52,7 @@ router.post('/', function(req, res, next) {
 // MODIFY THE ORDER
 router.put('/:id', function(req, res, next) {
   let modifiedOrder = req.body;
-  let modified = model.update(
+  let modified = Order.update(
     {
       "paid": modifiedOrder.paid
     }, 
