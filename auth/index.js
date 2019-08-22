@@ -23,7 +23,7 @@ router.post("/login", async (req, res, next) => {
         },
         include: 
         [{ model: Receipt,
-          include: [{ model: Order }]},
+          include: [Order,User]},
         {model: Order,
           include: [{ model: User }]
         }]
@@ -71,7 +71,7 @@ router.get("/me", async (req, res) => {
     // attributes: ['id', 'firstName', 'lastName', 'username'],
     include: 
     [{ model: Receipt,
-      include: [{ model: Order }]},
+      include: [Order,User]},
     {model: Order,
       include: [{ model: User }]
     }]
