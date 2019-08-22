@@ -20,15 +20,14 @@ router.post("/login", async (req, res, next) => {
     else {
       let foundUser = await User.findOne({
         where: { 
-          username: req.body.username 
+          username: req.user.username
         },
-        // attributes: ['id', 'firstName', 'lastName', 'username'],
-        // include: 
-        // [{ model: Receipt,
-        //   include: [{ model: Order }]},
-        // {model: Order,
-        //   include: [User]
-        // }]
+        include: 
+        [{ model: Receipt,
+          include: [{ model: Order }]},
+        {model: Order,
+          include: [{ model: User }]
+        }]
       })
       req.login(user, err => (err ? next(err) : res.json(foundUser)));
     }
