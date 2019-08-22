@@ -3,7 +3,6 @@ const router = express.Router();
 const { User, Receipt, Order } = require("../database/models");
 
 router.post("/login", async (req, res, next) => {
-  
   try {
     const user = await User.findOne({ 
       where: { 
@@ -20,7 +19,7 @@ router.post("/login", async (req, res, next) => {
     else {
       let foundUser = await User.findOne({
         where: { 
-          username: req.user.username
+          username: req.body.username
         },
         include: 
         [{ model: Receipt,
