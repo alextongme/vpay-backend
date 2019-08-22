@@ -3,6 +3,13 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const User = db.define("user", {
+
+  balance: {
+    type: Sequelize.FLOAT,
+    allowNull: false,
+    defaultValue: 0.00,
+  }, 
+
   username : {
     type: Sequelize.STRING,
     allowNull: false,

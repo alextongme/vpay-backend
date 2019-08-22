@@ -26,7 +26,9 @@ router.post("/login", async (req, res, next) => {
         include: 
         [{ model: Receipt,
           include: [{ model: Order }]},
-        {model: Order}]
+        {model: Order,
+          include: [User]
+        }]
       })
       req.login(user, err => (err ? next(err) : res.json(foundUser)));
     }
@@ -69,7 +71,9 @@ router.get("/me", async (req, res) => {
     include: 
     [{ model: Receipt,
       include: [{ model: Order }]},
-    {model: Order}]
+    {model: Order,
+      include: [{ model: User }]
+    }]
   })
   res.json(foundUser);
 });
