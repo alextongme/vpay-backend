@@ -64,7 +64,7 @@ const configureApp = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(compression());
 
-  app.use(cors({credentials: true, origin: 'https://vpay-frontend.herokuapp.com'}))
+  app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 
   app.use(
     session({
