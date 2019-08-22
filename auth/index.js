@@ -71,9 +71,17 @@ router.get("/me", async (req, res) => {
     // attributes: ['id', 'firstName', 'lastName', 'username'],
     include: 
     [{ model: Receipt,
-      include: [Order,User]},
+      include: [{
+        model: Order,
+        include: [User]
+      }]},
+
     {model: Order,
-      include: [{ model: User }]
+      include: [User],
+      include: [{
+        model: Receipt,
+        include: [User]
+      }]
     }]
   })
   res.json(foundUser);
