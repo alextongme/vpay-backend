@@ -23,9 +23,17 @@ router.post("/login", async (req, res, next) => {
         },
         include: 
         [{ model: Receipt,
-          include: [Order,User]},
+          include: [{
+            model: Order,
+            include: [User]
+          }]},
+    
         {model: Order,
-          include: [{ model: User }]
+          include: [User],
+          include: [{
+            model: Receipt,
+            include: [User]
+          }]
         }]
       })
       req.login(user, err => (err ? next(err) : res.json(foundUser)));
@@ -63,12 +71,10 @@ router.delete("/logout", (req, res) => {
 });
 
 router.get("/me", async (req, res) => {
-  // console.log(req.user);
   let foundUser = await User.findOne({
     where: { 
       username: req.user.username
     },
-    // attributes: ['id', 'firstName', 'lastName', 'username'],
     include: 
     [{ model: Receipt,
       include: [{
