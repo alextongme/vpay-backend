@@ -53,6 +53,7 @@ const configureApp = () => {
 
   // Error handling;
   app.use((req, res, next) => {
+    res.setHeader('Acess-Control-Allow-Origin', '*');
     if (path.extname(req.path).length) {
       const err = new Error('Not found');
       err.status = 404;
