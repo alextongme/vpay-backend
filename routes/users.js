@@ -3,13 +3,19 @@ const router = express.Router();
 const { User } = require('../database/models');
 const { Receipt } = require('../database/models');
 const { Order } = require('../database/models');
-
+const cors = require('cors');
 // FINDS ALL USERS
 // router.get('/', function(req, res, next) {
 //   User.findAll()
 //     .then(users => res.json(users))
 //     .catch(next)
 // });
+router.use(cors());
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // FINDS USER BY ID NUMBER
 router.get('/:username', function(req, res, next) {
