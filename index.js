@@ -79,6 +79,12 @@ const bootApp = async () => {
 };
 
 // Main function invocation;
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 bootApp();
 
 // Export our app, so that it can be imported in the www file;
