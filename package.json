@@ -29,6 +29,6 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "pgtools": "^0.3.0",
-    "sequelize": "^5.14.0"
+    "sequelize": "^5.15.1"
   }
 }
